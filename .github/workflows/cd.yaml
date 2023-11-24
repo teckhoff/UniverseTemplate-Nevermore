@@ -1,0 +1,33 @@
+name: CD
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Aftman
+        uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Nevermore
+        run: npm install
+
+      - name: Build Hub Place File
+        run: rojo build Hub\default.project.json -o Hub\Hub.rbxlx
+      
+      - name: Deploy Project
+        run: mantle deploy --environment staging
+        env:
+          ROBLOSECURITY: ${{ secrets.ROBLOXSECURITY }}
+          MANTLE_AWS_ACCESS_KEY_ID: ${{ secrets.MANTLE_AWS_ACCESS_KEY_ID }}
+          MANTLE_AWS_SECRET_ACCESS_KEY: ${{ secrets.MANTLE_AWS_SECRET_ACCESS_KEY }}

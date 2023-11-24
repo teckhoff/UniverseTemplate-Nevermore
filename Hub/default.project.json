@@ -1,0 +1,63 @@
+{
+  "name": "Hub",
+  "globIgnorePaths": [ "**/.package-lock.json" ],
+  "tree": {
+    "$className": "DataModel",
+
+    "HttpService": {
+      "$properties": {
+        "HttpEnabled": true
+      }
+    },
+
+    "ServerScriptService": {
+      "$path": "../Bootstrap/Server",
+      "Modules": {
+        "$className": "Folder",
+        "Common": {
+          "$path": "../Common/src"
+        },
+        "Server": {
+          "$path": "src/server"
+        },
+        "Packages": {
+          "$path": "../node_modules"
+        }
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$path": "../Bootstrap/Client"
+      }
+    },
+
+    "ReplicatedFirst": {
+      "$path": "../Bootstrap/ReplicatedFirst"
+    },
+
+    "Workspace": {
+      "$properties": {
+        "FilteringEnabled": true
+      }
+    },
+    "Lighting": {
+      "$properties": {
+        "Ambient": [
+          0,
+          0,
+          0
+        ],
+        "Brightness": 2,
+        "GlobalShadows": true,
+        "Outlines": false,
+        "Technology": "Future"
+      }
+    },
+    "SoundService": {
+      "$properties": {
+        "RespectFilteringEnabled": true
+      }
+    }
+  }
+}

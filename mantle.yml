@@ -1,0 +1,34 @@
+owner:
+  group: 6061367
+
+payments: owner
+
+state:
+  remote:
+    region: us-east-1
+    bucket: this-studio-mantle-states # Change this as needed
+    key: agartha # Change this to reflect your game
+
+environments:
+  - label: staging
+    targetNamePrefix: environmentLabel
+  - label: production
+    targetAccess: public
+
+target:
+  experience:
+    configuration:
+      genre: rpg
+      playableDevices: [computer] # hoping to support mobile and console as well, but for now, pc only
+      playability: private
+    places:
+      start:
+        file: Hub\Hub.rbxlx
+        configuration:
+          name: PLACEHOLDER NAME # Change this
+          description: |-
+            test
+            test
+            test
+          maxPlayerCount: 24
+          serverFill: robloxOptimized
