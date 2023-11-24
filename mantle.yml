@@ -6,8 +6,8 @@ payments: owner
 state:
   remote:
     region: us-east-1
-    bucket: this-studio-mantle-states # Change this as needed
-    key: agartha # Change this to reflect your game
+    bucket: PLACEHOLDER # Change this as needed
+    key: PLACEHOLDER # Change this to reflect your game
 
 environments:
   - label: staging
